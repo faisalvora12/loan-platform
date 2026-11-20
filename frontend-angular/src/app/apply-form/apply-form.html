@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <h1>Loan application</h1>
+
+  @for (f of fields; track f.name) {
+    <label>
+      {{ f.label }}
+      <input [type]="f.type" [formControlName]="f.name"
+             [attr.aria-invalid]="!!(clientError(f.name) || serverErrors[f.name])" />
+      @if (clientError(f.name); as msg) {
+        <span class="error">{{ msg }}</span>
+      } @else if (serverErrors[f.name]) {
+        <span class="error">{{ serverErrors[f.name] }}</span>
+      }
+    </label>
+  }
+
+  @if (serverError) {
+    <p class="error">{{ serverError }}</p>
+  }
+
+  <button type="submit" [disabled]="submitting">
+    {{ submitting ? 'Submitting…' : 'Submit application' }}
+  </button>
+</form>

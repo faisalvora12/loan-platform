@@ -1,0 +1,14 @@
+<section>
+  <h1>Decision</h1>
+  <p class="badge" [class]="'badge ' + result.decision.toLowerCase()">{{ labels[result.decision] }}</p>
+  <p>Application #{{ result.id }} for {{ result.applicantName }}, loan ${{ result.loanAmount | number }}</p>
+
+  <h2>Reasons</h2>
+  <ul>
+    @for (reason of result.reasons; track reason) {
+      <li>{{ reason }}</li>
+    }
+  </ul>
+
+  <button (click)="newApplication.emit()">New application</button>
+</section>

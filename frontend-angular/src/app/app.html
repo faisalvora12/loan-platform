@@ -1,0 +1,7 @@
+<main>
+  @if (result(); as r) {
+    <app-decision-view [result]="r" (newApplication)="result.set(null)" />
+  } @else {
+    <app-apply-form (decided)="result.set($event)" />
+  }
+</main>
