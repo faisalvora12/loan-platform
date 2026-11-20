@@ -1,0 +1,11 @@
+main { max-width: 480px; margin: 40px auto; padding: 0 16px; font-family: system-ui, sans-serif; }
+form, section { display: flex; flex-direction: column; gap: 14px; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+input { padding: 8px; font-size: 15px; border: 1px solid #bbb; border-radius: 4px; }
+input[aria-invalid="true"] { border-color: #c62828; }
+button { padding: 10px; font-size: 15px; cursor: pointer; }
+.error { color: #c62828; font-size: 13px; }
+.badge { font-weight: 600; padding: 8px 12px; border-radius: 4px; width: fit-content; }
+.badge.approve { background: #e6f4ea; color: #1e6b34; }
+.badge.refer { background: #fff4e0; color: #8a5a00; }
+.badge.decline { background: #fde8e8; color: #a12020; }
