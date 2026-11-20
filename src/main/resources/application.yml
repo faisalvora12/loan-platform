@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: loan-platform
+
+  # Postgres: loan applications (relational, structured)
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/loans}
+    username: ${POSTGRES_USER:loans}
+    password: ${POSTGRES_PASSWORD:loans}
+  jpa:
+    hibernate:
+      ddl-auto: update   # creates/updates tables from the entities (dev only; prod would use Flyway)
+    open-in-view: false
+
+  # MongoDB: underwriting decision audit log
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://localhost:27017/loan_audit}
+      auto-index-creation: true   # creates the @Indexed index on applicationId
